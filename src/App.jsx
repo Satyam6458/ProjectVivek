@@ -223,7 +223,7 @@ function App() {
             </div>
             <h1>Authentic Flavors of Chhattisgarh</h1>
             <p className="hero-lead">
-              Shree Dhaan brings traditional ready-to-cook mixes and batters straight from Chhattisgarh farmlands to modern kitchens. 100% natural, premium sourced, and crafted for instant, everyday cooking.
+              Shree Dhaan, a premium traditional food brand of <strong>Raavi Enterprises</strong>, brings authentic ready-to-cook mixes and batters straight from Chhattisgarh farmlands to modern kitchens. 100% natural, premium sourced, and crafted for instant, everyday cooking.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#products">
@@ -276,6 +276,9 @@ function App() {
             <div className="section-heading" style={{ textAlign: 'center', marginBottom: '32px' }}>
               <span className="eyebrow">Our Philosophy</span>
               <h2 style={{ margin: '6px auto 0' }}>Why Families Choose Shree Dhaan</h2>
+              <p style={{ maxWidth: '650px', margin: '12px auto 0', color: 'var(--text-muted)', fontSize: '1.02rem', lineHeight: '1.6' }}>
+                Shree Dhaan is the premium food product brand manufactured and packaged under <strong>Raavi Enterprises</strong>. We bring the perfect blend of strict quality standards and authentic regional recipes to your kitchen.
+              </p>
             </div>
             <div className="highlights" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
               {whyChooseUs.map((item) => (
