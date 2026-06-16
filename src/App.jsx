@@ -71,7 +71,7 @@ const fieldToTableSteps = [
 const products = [
   {
     name: 'Chhattisgarhi Spicy Chilla Mix',
-    image: assetUrl('assets/spicy-chilla.jpeg'),
+    image: assetUrl('assets/packagespicychila.png'),
     accent: 'Spicy',
     classType: 'spicy',
     description: 'A high-impact variant with strong shelf presence, quick preparation, and a bold, spicy, masaledar identity.',
@@ -79,7 +79,7 @@ const products = [
   },
   {
     name: 'Chhattisgarhi Super Desi Chilla Mix',
-    image: assetUrl('assets/super-desi-chilla.jpeg'),
+    image: assetUrl('assets/packagesuperdesichila.png'),
     accent: 'Super Desi',
     classType: 'desi',
     description: 'A traditional-looking variant built around rustic positioning, everyday utility, and classic tastes.',
@@ -87,7 +87,7 @@ const products = [
   },
   {
     name: 'Chhattisgarhi Classic Chilla Mix',
-    image: assetUrl('assets/classic-chilla.jpeg'),
+    image: assetUrl('assets/packageClassicchila.png'),
     accent: 'Classic',
     classType: 'classic',
     description: 'A clean, familiar option for buyers who want a simple, authentic, and dependable ready-to-cook mix.',
@@ -219,7 +219,7 @@ function App() {
           <div className="hero-copy">
             <div className="hero-badge-wrap">
               <span className="hero-badge">हमर स्वाद हमर पहचान</span>
-              <span className="hero-badge hero-badge-green">Since 1999</span>
+
             </div>
             <h1>Authentic Flavors of Chhattisgarh</h1>
             <p className="hero-lead">
@@ -424,7 +424,7 @@ function App() {
             <p>
               Are you interested in distributing Shree Dhaan products, placing bulk orders, or asking a question? Fill out our inquiry form or contact our customer support team directly.
             </p>
-            
+
             <div className="contact-panel">
               <div className="contact-info-block">
                 <span>Customer Support</span>
