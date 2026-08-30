@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
-// Bulletproof assetUrl helper that works in production, subpaths, GitHub Pages, Vercel, Netlify
-const assetUrl = (path) => {
-  const base = import.meta.env.BASE_URL || './';
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  if (base.endsWith('/')) {
-    return `${base}${cleanPath}`;
-  }
-  return `${base}/${cleanPath}`;
-};
+// Direct ES Module Imports for 100% Guaranteed Asset Bundling & Zero 404s
+import logo2Img from './assets/logo2.png';
+import logo1Img from './assets/logo1.png';
+import spicyChillaImg from './assets/packagespicychila.png';
+import superDesiChillaImg from './assets/packagesuperdesichila.png';
+import classicChillaImg from './assets/packageClassicchila.png';
+import planFraImg from './assets/planfra.png';
+import masalaPraImg from './assets/masalpra.png';
+import dudhPraImg from './assets/dudhpra.png';
+import pepration1Img from './assets/pepration1.jpeg';
+import pepration2Img from './assets/pepration2.jpeg';
+import pepration3Img from './assets/pepration3.jpeg';
+import pepration4Img from './assets/pepration4.jpeg';
+import registrationPdf from './assets/Registration.pdf?url';
+import udyamPdf from './assets/Print_Udyam_Registration_Certificate.PDF?url';
 
 // SVG Icons for clean, crisp rendering
 const SearchIcon = () => (
@@ -136,7 +142,7 @@ const products = [
   {
     id: 'spicy',
     name: 'Chhattisgarhi Spicy Chilla Mix',
-    image: assetUrl('assets/packagespicychila.png'),
+    image: spicyChillaImg,
     accent: 'Spicy',
     rating: '4.9',
     reviews: '142 reviews',
@@ -148,7 +154,7 @@ const products = [
   {
     id: 'desi',
     name: 'Chhattisgarhi Super Desi Chilla Mix',
-    image: assetUrl('assets/packagesuperdesichila.png'),
+    image: superDesiChillaImg,
     accent: 'Super Desi',
     rating: '5.0',
     reviews: '215 reviews',
@@ -160,7 +166,7 @@ const products = [
   {
     id: 'classic',
     name: 'Chhattisgarhi Classic Chilla Mix',
-    image: assetUrl('assets/packageClassicchila.png'),
+    image: classicChillaImg,
     accent: 'Classic',
     rating: '4.8',
     reviews: '98 reviews',
@@ -193,19 +199,19 @@ const futureProducts = [
   {
     name: 'Plain Fara',
     type: 'Steamed Snack',
-    image: assetUrl('assets/planfra.png'),
+    image: planFraImg,
     description: 'Traditional steamed rice rolls, light and served with sesame-chilli tempering.',
   },
   {
     name: 'Masala Fara',
     type: 'Crispy Snack',
-    image: assetUrl('assets/masalpra.png'),
+    image: masalaPraImg,
     description: 'Crispy fried rice snacks tossed with a robust blend of local spices.',
   },
   {
     name: 'Dudh Fara',
     type: 'Sweet Dessert',
-    image: assetUrl('assets/dudhpra.png'),
+    image: dudhPraImg,
     description: 'Sweet rice flour dumplings slow-cooked in cardamom and saffron infused milk.',
   },
 ];
@@ -213,19 +219,19 @@ const futureProducts = [
 const preparationSteps = [
   {
     text: 'Mix the Shree Dhaan chilla batter with water until smooth. Let it rest for 2-3 minutes.',
-    image: assetUrl('assets/pepration1.jpeg'),
+    image: pepration1Img,
   },
   {
     text: 'Heat the non-stick pan on medium flame and apply a light brush of oil or ghee.',
-    image: assetUrl('assets/pepration2.jpeg'),
+    image: pepration2Img,
   },
   {
     text: 'Pour one cup of batter and spread it evenly in circular motion to form a round chilla.',
-    image: assetUrl('assets/pepration3.jpeg'),
+    image: pepration3Img,
   },
   {
     text: 'Cover with a lid and cook. Flip the chilla once the edges turn crisp and golden brown.',
-    image: assetUrl('assets/pepration4.jpeg'),
+    image: pepration4Img,
   },
 ];
 
@@ -292,7 +298,7 @@ function App() {
       <header className="header-main-area">
         <div className="header-container">
           <a href="#" className="logo-wrap">
-            <img src={assetUrl('assets/logo2.png')} alt="Shree Dhaan Logo" />
+            <img src={logo2Img} alt="Shree Dhaan Logo" />
             <div className="logo-text-box">
               <span className="logo-brand-title">Shree Dhaan</span>
               <span className="logo-brand-subtitle">by Raavi Enterprises</span>
@@ -400,7 +406,7 @@ function App() {
             </div>
 
             <div className="hero-visual-card">
-              <img src={assetUrl('assets/logo1.png')} alt="Shree Dhaan Packaging" className="hero-main-img" />
+              <img src={logo1Img} alt="Shree Dhaan Packaging" className="hero-main-img" />
               <div className="floating-badge floating-badge-1">
                 <span className="floating-badge-title">Quality Standard</span>
                 <span className="floating-badge-val">100% Natural & Pure</span>
@@ -594,12 +600,12 @@ function App() {
           </div>
 
           <div className="certificates-grid">
-            <a href={assetUrl('assets/Registration.pdf')} target="_blank" rel="noreferrer" style={{ display: 'block', padding: '28px', background: '#fff', borderRadius: '18px', border: '1px solid var(--line)', boxShadow: 'var(--kiro-shadow)' }}>
+            <a href={registrationPdf} target="_blank" rel="noreferrer" style={{ display: 'block', padding: '28px', background: '#fff', borderRadius: '18px', border: '1px solid var(--line)', boxShadow: 'var(--kiro-shadow)' }}>
               <span style={{ fontSize: '12px', fontWeight: '800', color: 'var(--brand-gold-dark)', textTransform: 'uppercase' }}>Official Document</span>
               <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '1.4rem', color: 'var(--brand-green)', margin: '6px 0' }}>Business Registration PDF</h3>
               <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0 }}>View or download company registration documents in a new browser tab.</p>
             </a>
-            <a href={assetUrl('assets/Print_Udyam_Registration_Certificate.PDF')} target="_blank" rel="noreferrer" style={{ display: 'block', padding: '28px', background: '#fff', borderRadius: '18px', border: '1px solid var(--line)', boxShadow: 'var(--kiro-shadow)' }}>
+            <a href={udyamPdf} target="_blank" rel="noreferrer" style={{ display: 'block', padding: '28px', background: '#fff', borderRadius: '18px', border: '1px solid var(--line)', boxShadow: 'var(--kiro-shadow)' }}>
               <span style={{ fontSize: '12px', fontWeight: '800', color: 'var(--brand-gold-dark)', textTransform: 'uppercase' }}>Government MSME</span>
               <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '1.4rem', color: 'var(--brand-green)', margin: '6px 0' }}>Udyam Certificate PDF</h3>
               <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0 }}>View official Government of India Udyam MSME certification file.</p>
@@ -704,7 +710,7 @@ function App() {
       <footer className="main-footer">
         <div className="footer-container">
           <div className="footer-col-brand">
-            <img src={assetUrl('assets/logo2.png')} alt="Shree Dhaan Logo" className="footer-logo" />
+            <img src={logo2Img} alt="Shree Dhaan Logo" className="footer-logo" />
             <p>
               Shree Dhaan by <strong>Raavi Enterprises</strong> brings 100% natural, farm-sourced ready-to-cook mixes straight from Chhattisgarh farmlands to modern homes.
             </p>
@@ -731,8 +737,8 @@ function App() {
           <div>
             <h4 className="footer-col-title">POLICIES & DOCS</h4>
             <ul className="footer-menu-list">
-              <li><a href={assetUrl('assets/Registration.pdf')} target="_blank" rel="noreferrer">Business Registration</a></li>
-              <li><a href={assetUrl('assets/Print_Udyam_Registration_Certificate.PDF')} target="_blank" rel="noreferrer">Udyam MSME Certificate</a></li>
+              <li><a href={registrationPdf} target="_blank" rel="noreferrer">Business Registration</a></li>
+              <li><a href={udyamPdf} target="_blank" rel="noreferrer">Udyam MSME Certificate</a></li>
               <li><a href="#privacy">Privacy Policy</a></li>
               <li><a href="#terms">Terms of Service</a></li>
               <li><a href="#shipping">Shipping & Returns</a></li>
