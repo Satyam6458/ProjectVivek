@@ -476,8 +476,6 @@ function App() {
             {products.map((p) => (
               <div className="kiro-product-card" key={p.id}>
                 <div className="product-img-box">
-                  <span className="product-tag-badge">{p.accent}</span>
-                  <div className="product-rating-chip">★ {p.rating} ({p.reviews})</div>
                   <img src={p.image} alt={p.name} />
                 </div>
                 <div className="product-content-box">
@@ -783,8 +781,7 @@ function App() {
             <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginBottom: '20px' }}>
               <img src={selectedQuickProduct.image} alt={selectedQuickProduct.name} style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
               <div>
-                <span className="product-tag-badge" style={{ position: 'static' }}>{selectedQuickProduct.accent}</span>
-                <h3 style={{ margin: '8px 0 4px', fontFamily: 'Fraunces, serif', fontSize: '1.4rem', color: 'var(--brand-green)' }}>{selectedQuickProduct.name}</h3>
+                <h3 style={{ margin: '0 0 4px', fontFamily: 'Fraunces, serif', fontSize: '1.4rem', color: 'var(--brand-green)' }}>{selectedQuickProduct.name}</h3>
                 <span style={{ fontSize: '13px', color: 'var(--brand-gold-dark)', fontWeight: '700' }}>Weight: {selectedQuickProduct.weight}</span>
               </div>
             </div>
