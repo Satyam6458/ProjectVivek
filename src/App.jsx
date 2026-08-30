@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
-const base = import.meta.env.BASE_URL;
-const assetUrl = (path) => `${base}${path}`;
+// Bulletproof assetUrl helper that works in production, subpaths, GitHub Pages, Vercel, Netlify
+const assetUrl = (path) => {
+  const base = import.meta.env.BASE_URL || './';
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  if (base.endsWith('/')) {
+    return `${base}${cleanPath}`;
+  }
+  return `${base}/${cleanPath}`;
+};
 
 // SVG Icons for clean, crisp rendering
 const SearchIcon = () => (
@@ -369,7 +376,10 @@ function App() {
         <section className="hero-wrapper">
           <div className="hero-container">
             <div>
-
+              <div className="hero-rating-box">
+                <span>★★★★★</span>
+                <span>4.9 / 5.0 Rating (450+ Happy Kitchens)</span>
+              </div>
               <h1 className="hero-heading">Instant Traditional Chilla Mix in 10 Minutes</h1>
               <p className="hero-description">
                 Buy <strong>Shree Dhaan Chilla Mixes</strong> online — 100% natural, farm-sourced rice and pulse mixes crafted with traditional Chhattisgarhi heritage. Three clean ingredients, zero maida, no preservatives. FSSAI Certified.
