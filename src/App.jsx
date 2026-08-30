@@ -382,10 +382,7 @@ function App() {
         <section className="hero-wrapper">
           <div className="hero-container">
             <div>
-              <div className="hero-rating-box">
-                <span>★★★★★</span>
-                <span>4.9 / 5.0 Rating (450+ Happy Kitchens)</span>
-              </div>
+
               <h1 className="hero-heading">Instant Traditional Chilla Mix in 10 Minutes</h1>
               <p className="hero-description">
                 Buy <strong>Shree Dhaan Chilla Mixes</strong> online — 100% natural, farm-sourced rice and pulse mixes crafted with traditional Chhattisgarhi heritage. Three clean ingredients, zero maida, no preservatives. FSSAI Certified.
