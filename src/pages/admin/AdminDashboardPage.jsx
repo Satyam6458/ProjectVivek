@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import api from '../../services/api';
 import { logo2Img } from '../../data/siteData';
 import './AdminDashboard.css';
+import MapModal from '../../components/MapModal';
 
 // Reusable Responsive Pagination Component
 const PaginationBar = ({ currentPage, totalItems, pageSize, onPageChange }) => {
@@ -151,6 +152,7 @@ export default function AdminDashboardPage() {
   const storesPageSize = 6;
   const [showStoreModal, setShowStoreModal] = useState(false);
   const [editingStoreId, setEditingStoreId] = useState(null);
+  const [selectedMapStore, setSelectedMapStore] = useState(null);
   const [storeForm, setStoreForm] = useState({
     storename: '',
     fulladdress: '',
@@ -2018,11 +2020,10 @@ export default function AdminDashboardPage() {
 
                       {/* Store Actions */}
                       <div style={{ borderTop: '1px solid var(--line)', paddingTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-                        {st.locationlink ? (
-                          <a
-                            href={st.locationlink}
-                            target="_blank"
-                            rel="noreferrer"
+                        {st.locationlink || st.fulladdress ? (
+                          <button
+                            type="button"
+                            onClick={() => setSelectedMapStore(st)}
                             style={{
                               background: '#f3f4f6',
                               color: 'var(--brand-green)',
@@ -2031,16 +2032,16 @@ export default function AdminDashboardPage() {
                               borderRadius: '6px',
                               fontSize: '12px',
                               fontWeight: '700',
-                              textDecoration: 'none',
+                              cursor: 'pointer',
                               display: 'inline-flex',
                               alignItems: 'center',
                               gap: '4px',
                             }}
                           >
-                            🗺️ Maps Link ↗
-                          </a>
+                            🗺️ View Map
+                          </button>
                         ) : (
-                          <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>No Maps link</span>
+                          <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>No location</span>
                         )}
 
                         <div style={{ display: 'flex', gap: '6px' }}>
@@ -2271,8 +2272,15 @@ export default function AdminDashboardPage() {
             </div>
           </div>
         )}
-
       </main>
+
+      {/* Interactive Google Maps Modal */}
+      {selectedMapStore && (
+        <MapModal
+          store={selectedMapStore}
+          onClose={() => setSelectedMapStore(null)}
+        />
+      )}
     </div>
   );
 }

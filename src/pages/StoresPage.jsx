@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
+import MapModal from '../components/MapModal';
 
 export default function StoresPage() {
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedMapStore, setSelectedMapStore] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -218,34 +220,29 @@ export default function StoresPage() {
 
                   {/* Actions */}
                   <div style={{ borderTop: '1px solid var(--line)', paddingTop: '16px', display: 'flex', gap: '10px' }}>
-                    {st.locationlink ? (
-                      <a
-                        href={st.locationlink}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          flex: 1,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '6px',
-                          background: 'var(--brand-green)',
-                          color: '#ffffff',
-                          padding: '10px 14px',
-                          borderRadius: '10px',
-                          fontWeight: '700',
-                          fontSize: '13px',
-                          textDecoration: 'none',
-                          boxShadow: '0 4px 12px rgba(17, 56, 12, 0.15)',
-                        }}
-                      >
-                        <span>🗺️</span> View on Google Maps ↗
-                      </a>
-                    ) : (
-                      <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontStyle: 'italic' }}>
-                        In-store purchase available
-                      </div>
-                    )}
+                    <button
+                      type="button"
+                      onClick={() => setSelectedMapStore(st)}
+                      style={{
+                        flex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '6px',
+                        background: 'var(--brand-green)',
+                        color: '#ffffff',
+                        padding: '10px 14px',
+                        borderRadius: '10px',
+                        fontWeight: '700',
+                        fontSize: '13px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 12px rgba(17, 56, 12, 0.15)',
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <span>🗺️</span> View on Google Maps
+                    </button>
 
                     <a
                       href="tel:+919109002098"
@@ -307,6 +304,14 @@ export default function StoresPage() {
 
         </div>
       </section>
+
+      {/* Interactive Google Maps Modal */}
+      {selectedMapStore && (
+        <MapModal
+          store={selectedMapStore}
+          onClose={() => setSelectedMapStore(null)}
+        />
+      )}
     </div>
   );
 }
