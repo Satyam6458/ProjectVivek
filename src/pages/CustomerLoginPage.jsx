@@ -23,7 +23,7 @@ export default function CustomerLoginPage() {
             You are logged in as <strong>{user?.name}</strong> ({user?.email}).
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-            <Link to={destination} className="header-cta-btn" style={{ padding: '10px 22px' }}>
+            <Link to={destination} className="auth-submit-btn" style={{ width: 'auto', padding: '10px 22px', borderRadius: '999px', fontSize: '13px' }}>
               Go to {isAdmin ? 'Admin Dashboard' : 'My Account'} →
             </Link>
           </div>
@@ -288,10 +288,12 @@ export default function CustomerLoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="header-cta-btn"
+                className="auth-submit-btn"
                 style={{
                   width: '100%',
+                  display: 'flex',
                   justifyContent: 'center',
+                  alignItems: 'center',
                   padding: '14px',
                   borderRadius: '10px',
                   fontSize: '14px',
@@ -396,10 +398,12 @@ export default function CustomerLoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="header-cta-btn"
+                className="auth-submit-btn"
                 style={{
                   width: '100%',
+                  display: 'flex',
                   justifyContent: 'center',
+                  alignItems: 'center',
                   padding: '14px',
                   borderRadius: '10px',
                   fontSize: '14px',

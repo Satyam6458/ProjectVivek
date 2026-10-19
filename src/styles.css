@@ -365,6 +365,39 @@ button {
   box-shadow: 0 6px 18px rgba(17, 56, 12, 0.3);
 }
 
+.auth-submit-btn {
+  background: var(--brand-green);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(17, 56, 12, 0.2);
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background: var(--brand-green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(17, 56, 12, 0.3);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
 /* ============================================================
    ACCOUNT DROPDOWN MENU
    ============================================================ */
@@ -1711,7 +1744,7 @@ button {
   }
 
   .main-navigation,
-  .header-cta-btn {
+  .header-actions > .header-cta-btn {
     display: none;
   }
 
